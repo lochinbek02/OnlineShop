@@ -17,44 +17,10 @@ class MainController extends Controller
      */
     public function index()
     {
-        $product_image=Post::all();
-        
-        $a=[];
-        $b=[];
-        $c=[];
-        foreach ($product_image as $y){
-            array_push($a,$y->image);
-        }
-
-        foreach ($product_image as $y){
-            array_push($b,$y->title);
-        }
-        foreach ($product_image as $y){
-            array_push($c,$y->id);
-        }
-        
-        $arr = [];
-        $dc1 = [];
-        $p = 0;
-
-        for ($i = 0; $i <= count($a) - 3; $i += 3) {
-            $dc = [];
-
-            for ($j = $i; $j < $i + 3; $j++) {
-                $dc[$b[$j]] = [$a[$j],$c[$j]];
-            }
-
-            array_push($arr,$dc);
-        }
-
-        for ($i = floor(count($a) / 3) * 3; $i < floor(count($a) / 3) * 3 + (count($a) % 3); $i++) {
-            $dc1[$b[$i]] = [$a[$i],$c[$i]];
-        }
-        array_push($arr,$dc1);
+        $data=Post::all();
         
         
-        // dd($arr);
-        return view('navigation.nav',compact('arr'));
+        return view('navigation.nav',compact('data'));
     }
 
     /**

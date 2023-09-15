@@ -148,31 +148,38 @@
 
 </div>
 </div>
+<br>
+<br>
 
     <!-- Start Categories  -->
-   
-    @foreach ($arr as $item)
-   
-    <div class="categories-shop">
-        <div class="container ">
-            <div class="row">
-                @foreach($item as $key => $value)
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 " >
-                    <div class="shop-cat-box text-center" style="width: 350px; height: 350px;">
-                        <img class="img-fluid" style="border-radius: 5px; width: 250px; height: 300px; " src="{{asset('storage/'. $value[0])}}" alt="" />
-                        <br>
-                        <a class="btn hvr-hover " href="{{ route('about.product',$value[1]) }}"><strong>{{$key}}</strong></a>
-                         
+    <h1 class="text-center">Barcha Mahsulotlar Ro'yxati</h1>
+    @foreach($data as $item)
+    <div class="container">
+        <table class="table text-center">
+            <thead>
+                <tr>
+                    <!-- <th></th> -->
+                   
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                    <div class="card" style="width: 18rem;">
+                    <img src="{{asset('storage/'. $item->image)}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <!-- <h5 class="card-title">Card title</h5> -->
+                        <p class="card-text">{{$item->title}}</p>
+                        <a href="{{ route('about.product',$item->id) }}" class="btn btn-primary">To see</a>
                     </div>
-                    
-                </div>
-                @endforeach
-                
-                
-            </div>
-        </div>
-    </div>
-    @endforeach 
+                    </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+   </div>
+    @endforeach
     <!-- <div class="categories-shop">
         <div class="container">
             <div class="row">
